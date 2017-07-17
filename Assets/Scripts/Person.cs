@@ -7,20 +7,23 @@ public class Person : MonoBehaviour {
     public Rigidbody ballPhys;
     public Camera eyes;
     public float armLength = 0.6f;
-    public float throwForce = 3f;
+    [HideInInspector]
+    public float throwForce = 0f;
+    [HideInInspector]
+    public float maxThrowForce = 10f;
     bool hasBall = true;
-
+    bool throwing = false;
 
     Vector3 mouseStartPostion;
     Vector3 startRotation;
     bool isRotating = false;
-    public Vector2 RotationSensitivity = new Vector2(0.5f, 0.5f);
-    public Vector2 TranslationSensitivity = new Vector2(1f, 1f);
-    public float zoomSensitivity = 15f;
+    Vector2 RotationSensitivity = new Vector2(0.25f, 0.25f);
+    Vector2 TranslationSensitivity = new Vector2(.05f, .05f);
+    float zoomSensitivity = 1.5f;
 
     // Use this for initialization
     void Start () {
-	
+        throwForce = 0;
 	}
 	
 	// Update is called once per frame
@@ -47,18 +50,21 @@ public class Person : MonoBehaviour {
     {
         Ray ray = eyes.ScreenPointToRay(Input.mousePosition);
         ball.transform.position = eyes.transform.position + (ray.direction * armLength);
+        ballPhys.velocity = Vector3.zero;
+        ballPhys.angularVelocity = Vector3.zero;
     }
 
     void CheckInput()
     {
+        if (hasBall && Input.GetKey(KeyCode.Mouse0))
+        {
+            throwForce = (throwForce == maxThrowForce) ? throwForce : throwForce + .1f;
+        }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            ballPhys.velocity = Vector3.zero;
-            ballPhys.angularVelocity = Vector3.zero;
-            ballPhys.Sleep();
-            
             ballPhys.AddForce(eyes.ScreenPointToRay(Input.mousePosition).direction * throwForce, ForceMode.Impulse);
             hasBall = !hasBall;
+            throwForce = 0;
         }
 
         if (Input.GetKey(KeyCode.Mouse2))
@@ -71,6 +77,8 @@ public class Person : MonoBehaviour {
             }
             else
             {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 Vector3 currentMousePosition = Input.mousePosition;
                 transform.rotation = Quaternion.Euler(new Vector3(startRotation.x - (currentMousePosition.y - mouseStartPostion.y) * RotationSensitivity.y,
                                                                   startRotation.y + (currentMousePosition.x - mouseStartPostion.x) * RotationSensitivity.x,
@@ -81,7 +89,8 @@ public class Person : MonoBehaviour {
             isRotating = false;
         }
         transform.Translate(new Vector3(
-                                        Input.GetAxis("Horizontal"),
+                                        TranslationSensitivity.x
+                                            * Input.GetAxis("Horizontal"),
                                         TranslationSensitivity.x
                                             * Input.GetAxis("Vertical")
                                             * Mathf.Sin(transform.rotation.eulerAngles.x * Mathf.PI / 180),

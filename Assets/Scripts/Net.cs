@@ -4,8 +4,6 @@ using System.Collections;
 public class Net : MonoBehaviour {
 
     public Renderer scoreLight;
-    public Collider topOfNet;
-    public Collider bottomOfNet;
     public const float scoreLightDuration = 5f;
     float remainingScoreLightDuration = 0f;
     public bool scored = false;
