@@ -1,0 +1,4 @@
+E:\Unity Projects\TestHolo\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+E:\Unity Projects\TestHolo\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+E:\Unity Projects\TestHolo\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+E:\Unity Projects\TestHolo\App\TestHolo\TestHolo.csproj;x86
