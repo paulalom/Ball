@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ToolbarElement : MonoBehaviour {
 
-    public PlayMakerScreenManager screenManager;
+    public ScreenManager screenManager;
     public RectTransform thisRectTransform;
     public RectTransform dragToolbarButtonTransform;
     public int minWidth;

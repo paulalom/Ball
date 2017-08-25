@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class PlayMakerCourt : MonoBehaviour {
+public class Court : OnCourtObject {
 
     private CourtData courtData = new CourtData();
     public RawImage court;
@@ -64,6 +64,6 @@ public class PlayMakerCourt : MonoBehaviour {
 
     public static CourtData FromString(string courtDataString, PlayMakerManager playMakerManager)
     {
-        return Instantiate(playMakerManager.prefabs[typeof(PlayMakerCourt).ToString()]).GetComponent<CourtData>();
+        return Instantiate(playMakerManager.prefabs[typeof(Court).ToString()]).GetComponent<CourtData>();
     }
 }

@@ -6,7 +6,7 @@ public class SaveLoadToolbarElement : ToolbarElement {
 
     string defaultFilePath = "court.txt";
     string loadSaveFilePath;
-    public PlayMakerCourt court;
+    public Court court;
     public InputField fileNameInputField;
     public Text fileNameLabel;
 

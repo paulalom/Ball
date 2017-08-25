@@ -2,9 +2,9 @@
 using System.Collections;
 using UnityEngine.Events;
 
-public class PlayMakerScreenManager : MonoBehaviour {
+public class ScreenManager : MonoBehaviour {
 
-    public PlayMakerCourt court;
+    public Court court;
     public int screenWidth, screenHeight, courtScreenWidth, courtScreenHeight;
     public UnityEvent onCourtResize;
     
