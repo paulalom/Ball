@@ -19,7 +19,7 @@ public class AddPlayStep : PlayMakerAction
     {
         GameObject go = GameObject.Instantiate(prefabs[typeof(PlayStep).ToString()]);
         PlayStep playStep = go.GetComponent<PlayStep>();
-        playStep.image.sprite = uiManager.OnCourtImages[(int)playId + 1];
+        playStep.image.sprite = uiManager.OnCourtImages[(int)playId + 2];
         return playStep;
     }
 }

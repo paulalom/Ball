@@ -30,7 +30,14 @@ public class PlayMakerManager : MonoBehaviour {
 
     public void DoDragAction(Vector3 startPoint, Vector3 endPoint, Player dragActionPlayer, PlayMakerAction action)
     {
-
+        OnCourtObject obj = action.GetOnCourtObject(prefabs);
+        Rect rect = obj.GetComponent<Rect>();
+        Vector3 startPos = startPoint;
+        obj.transform.SetParent(court.transform, true);
+        startPos.y += rect.height / 2;
+        rect.position = startPos;
+        rect.Set(rect.x, rect.y, (startPoint + endPoint).magnitude, rect.height);
+        obj.transform.Rotate(new Vector3(0, 0, Mathf.Atan((endPoint - startPoint).magnitude)));
     }
 
     public void AddPlay(Vector3 startPoint, Vector3 endPoint, Player playPlayer, PlayMakerAction play)
