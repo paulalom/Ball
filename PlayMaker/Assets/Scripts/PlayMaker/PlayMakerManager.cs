@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class PlayMakerManager : MonoBehaviour {
     
     public ScreenManager screenManager;
     public Court court;
-    public List<int> playersOnBoard = new List<int>();
-    public Dictionary<int, Tree> playerPlays = new Dictionary<int, Tree>();
 
+    public StepManager stepManager;
     public List<string> inspectorPrefabNames;
     public List<GameObject> inspectorPrefabObjects;
+    
     public Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
+
+    void Awake()
+    {
+        ObjectReference.playMakerManager = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -19,35 +26,98 @@ public class PlayMakerManager : MonoBehaviour {
         {
             prefabs.Add(inspectorPrefabNames[i], inspectorPrefabObjects[i]);
         }
+        court.courtData.playMakerManager = this;
     }
 	
-    public void DoClickAction(Vector3 clickLocation, PlayMakerAction action)
+    public void AddPlayer(Vector3 clickLocation, PlayMakerObjectBuilder builder)
     {
-        OnCourtObject obj = action.GetOnCourtObject(prefabs);
-        obj.GetComponent<RectTransform>().position = clickLocation;
-        obj.transform.SetParent(court.transform, true);
+        AddPlayer(clickLocation, (PlayerBuilder)builder, stepManager.currentStep);
     }
 
-    public void DoDragAction(Vector3 startPoint, Vector3 endPoint, Player dragActionPlayer, PlayMakerAction action)
+    public void AddPlayer(Vector3 clickLocation, PlayMakerObjectBuilder builder, int stepId)
     {
-        OnCourtObject obj = action.GetOnCourtObject(prefabs);
-        Rect rect = obj.GetComponent<Rect>();
-        Vector3 startPos = startPoint;
-        obj.transform.SetParent(court.transform, true);
-        startPos.y += rect.height / 2;
-        rect.position = startPos;
-        rect.Set(rect.x, rect.y, (startPoint + endPoint).magnitude, rect.height);
-        obj.transform.Rotate(new Vector3(0, 0, Mathf.Atan((endPoint - startPoint).magnitude)));
+        Player player = (Player)builder.GetOnCourtObject(prefabs);
+
+        Player currentStepPlayer = GetStepPlayer(stepId, player.playerTypeId);
+
+        // We already have a player of this type on the court. Move it to the clicklocation.
+        if (currentStepPlayer != null)
+        {
+            MovePlayerAndPreserveActionEndpoints(currentStepPlayer, clickLocation);
+            int curStepId = stepId;
+
+            // Check next step to see if we need to add or move again.
+            if (stepId < court.courtData.playerSteps.Count - 1 && currentStepPlayer.playerActions.Where(x => x.isMoveAction).FirstOrDefault() == null)
+            {
+                AddPlayer(clickLocation, builder, stepId + 1);
+            }
+        }
+        else // new player type, add to current and all future steps
+        {
+            player.GetComponent<RectTransform>().position = clickLocation;
+            player.transform.SetParent(court.transform, true);
+            court.AddPlayer(stepId, player);
+            
+            // Check next step to see if we need to add or move again.
+            if (stepId < court.courtData.playerSteps.Count - 1)
+            {
+                AddPlayer(clickLocation, builder, stepId + 1);
+            }
+        }
+    }
+    
+    public void AddPlayerAction(Vector3 startPoint, Vector3 endPoint, Player stepPlayer, PlayerActionBuilder playerActionBuilder)
+    {
+        AddPlayerAction(startPoint, endPoint, stepPlayer, playerActionBuilder, stepManager.currentStep);
     }
 
-    public void AddPlay(Vector3 startPoint, Vector3 endPoint, Player playPlayer, PlayMakerAction play)
+    public void AddPlayerAction(Vector3 startPoint, Vector3 endPoint, Player stepPlayer, PlayerActionBuilder playerActionBuilder, int stepId)
     {
-        //PlayStep playStep = PlayStepFactory.GetPlayStep(play, startPoint, endPoint);
-        //playPlayer.playSteps.Add();
+        PlayerAction playerAction = (PlayerAction)playerActionBuilder.GetOnCourtObject(prefabs);
+        playerAction.InitPlayerAction(startPoint, endPoint, stepPlayer);
+        stepPlayer.playerActions.Add(playerAction);
+        if (stepId == court.courtData.playerSteps.Count - 1)
+        {
+            stepManager.AddStep(false);
+        }
+        if (playerAction.isMoveAction)
+        {
+            AddPlayer(endPoint, new PlayerBuilder(stepPlayer.playerTypeId), stepId + 1);
+            stepManager.RefreshBoard();
+        }
     }
 
-    public void MovePlayer(Vector3 location, PlayMakerAction action)
+    public void LoadCourt(string courtString)
     {
+        foreach (List<Player> stepPlayers in court.courtData.playerSteps)
+        {
+            foreach (Player player in stepPlayers)
+            {
+                Destroy(player.gameObject);
+            }
+        }
+        court.courtData.playerSteps.Clear();
+        court.courtData = CourtData.FromString(courtString, court, this);
+        stepManager.stepSlider.maxValue = court.courtData.playerSteps.Count - 1;
+    }
 
+    void MovePlayerAndPreserveActionEndpoints(Player player, Vector3 targetPos)
+    {
+        List<Vector3> actionEndpoints = new List<Vector3>();
+        foreach (PlayerAction action in player.playerActions)
+        {
+            actionEndpoints.Add(action.end);
+        }
+        player.transform.position = targetPos;
+
+        for (int i = 0; i < actionEndpoints.Count; i++)
+        {
+            player.playerActions[i].InitPlayerAction(targetPos, actionEndpoints[i], player);
+        }
+    }
+
+    Player GetStepPlayer(int stepId, int typeId)
+    {
+        return court.courtData.playerSteps[stepId].Where(x => x.playerTypeId == typeId).FirstOrDefault();
     }
 }

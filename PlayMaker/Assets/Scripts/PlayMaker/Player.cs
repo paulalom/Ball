@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Player : OnCourtObject
 {
-    public int playerId;
-    public List<PlayStep> playSteps;
+    public int playerTypeId;
+    public List<PlayerAction> playerActions = new List<PlayerAction>();
     public Image image;
     public Text text;
 
     void Start()
     {
-        playSteps = new List<PlayStep>();
+        playerActions = new List<PlayerAction>();
     }
 }

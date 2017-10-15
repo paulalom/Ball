@@ -34,16 +34,28 @@ public class SaveLoadToolbarElement : ToolbarElement {
         fileNameLabel.text = "FileName: " + loadSaveFilePath;
     }
 
-    public void LoadCourt()
+    public void LoadCourt(PlayMakerManager playMakerManager)
     {
         foreach (string line in MyFileReader.Read(loadSaveFilePath))
         {
             Debug.Log(line);
+            if (FindFirstNotAny(line, Court.validSaveCourtCharacters) != null)
+            {
+                throw new System.Exception("Invalid characters in save file!");
+            }
+            
+            playMakerManager.LoadCourt(line);
         }
     }
 
     public void SaveCourt()
     {
         MyFileWriter.Write(loadSaveFilePath, court.ToString());
+    }
+
+    public static string FindFirstNotAny(string value, params char[] charset)
+    {
+        string firstInvalid = value.TrimStart(charset);
+        return firstInvalid.Length > 0 ? firstInvalid : null;
     }
 }

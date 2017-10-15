@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayStepFactory {
     
-    public static void GetPlayStep(Vector3 start, Vector3 end, PlayMakerAction action)
+    public static void GetPlayStep(Vector3 start, Vector3 end, PlayMakerObjectBuilder action)
     {
         
     }

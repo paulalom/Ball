@@ -25,7 +25,7 @@ public class ScreenManager : MonoBehaviour {
     
     public void ResizeCourt()
     {
-        court.SetCourtDimensions(courtScreenWidth, courtScreenHeight);
+        court.SetCourtDimensions(courtScreenWidth, courtScreenHeight, this);
         onCourtResize.Invoke();
     }
 

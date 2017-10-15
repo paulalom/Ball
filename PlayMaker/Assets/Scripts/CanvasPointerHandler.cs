@@ -21,10 +21,15 @@ public class CanvasPointerHandler : MonoBehaviour, IPointerDownHandler, IPointer
     {
         GameObject go = eventData.pointerCurrentRaycast.gameObject;
         pointerUpObject = go.GetComponentInParent<OnCourtObject>() ?? go.GetComponent<OnCourtObject>();
-        Debug.Log(eventData.pointerCurrentRaycast.gameObject.name);
+        Debug.Log(eventData.pointerCurrentRaycast.screenPosition);
     }
     public bool IsNotDrag()
     {
         return Math.Abs((pointerDownAt - Input.mousePosition).sqrMagnitude) <= dragDistanceTolerance * dragDistanceTolerance;
+    }
+
+    public void OnPointerDown()
+    {
+        pointerDownAt = Input.mousePosition;
     }
 }

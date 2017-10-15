@@ -16,10 +16,8 @@ public class MyFileWriter
         {
             using (StreamWriter sw = new StreamWriter(path))
             {
-                foreach (string line in lines)
-                {
-                    sw.WriteLine(line);
-                }
+                string str = string.Join(Environment.NewLine, lines.ToArray());
+                sw.Write(str);
             }
         }
         catch (Exception e)

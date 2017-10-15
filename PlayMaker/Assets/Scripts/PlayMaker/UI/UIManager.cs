@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
         activeActionSelecter = selecter;
         activeActionSelecter.Select();
     }
-
+    
     public void Update()
     {
         if (activeActionSelecter != null)
@@ -46,22 +46,21 @@ public class UIManager : MonoBehaviour
     
     void ProcessClickInput(Vector3 clickLocation, OnCourtObject clickedObject)
     {
-        if (activeActionSelecter.action is AddPlayer && clickedObject != playMakerManager.court)
+        if (!activeActionSelecter.action.ValidateClick(clickLocation, clickedObject))
         {
             return;
         }
-        playMakerManager.DoClickAction(clickLocation, activeActionSelecter.action);
+        playMakerManager.AddPlayer(clickLocation, activeActionSelecter.action);
     }
 
     // need more accurate drag, want to be able to draw
     void ProcessDragInput(Vector3 draggedFrom, Vector3 draggedTo, OnCourtObject dragStartObject, OnCourtObject dragEndObject)
     { 
-        if (dragStartObject == null || dragStartObject.GetComponent<Player>() == null)
+        if (!activeActionSelecter.action.ValidateDrag(draggedFrom, draggedTo, dragStartObject, dragEndObject))
         {
             return;
         }
-
-        playMakerManager.DoDragAction(draggedFrom, draggedTo, dragStartObject.GetComponent<Player>(), activeActionSelecter.action);
+        playMakerManager.AddPlayerAction(draggedFrom, draggedTo, dragStartObject.GetComponent<Player>(), (PlayerActionBuilder)activeActionSelecter.action);
     }
 
 }
