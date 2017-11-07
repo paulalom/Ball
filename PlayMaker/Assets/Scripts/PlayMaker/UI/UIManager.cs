@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public List<ActionSelecter> selecters;
     public List<Sprite> OnCourtImages;
     public CanvasPointerHandler pointerHandler;
+    public bool eraseOnClick = false;
 
     void Start()
     {
@@ -15,6 +16,11 @@ public class UIManager : MonoBehaviour
         {
             selecter.Disselect();
         }
+    }
+
+    public void SetEraser()
+    {
+        eraseOnClick = true;
     }
 
     public void SetUISelection(ActionSelecter selecter)
@@ -31,6 +37,15 @@ public class UIManager : MonoBehaviour
     {
         if (activeActionSelecter != null)
         {
+            // eraser is hackish, should change the way actionSelecter works to allow for this functionality
+            if (eraseOnClick && Input.GetKeyUp(KeyCode.Mouse0) && pointerHandler.IsNotDrag())
+            {
+                playMakerManager.Erase(pointerHandler.pointerDownObject);
+                eraseOnClick = false;
+                pointerHandler.pointerDownObject = null;
+                return;
+            }
+
             if (Input.GetKeyUp(KeyCode.Mouse0) && pointerHandler.IsNotDrag())
             {
                 ProcessClickInput(Input.mousePosition, pointerHandler.pointerDownObject);
@@ -46,21 +61,20 @@ public class UIManager : MonoBehaviour
     
     void ProcessClickInput(Vector3 clickLocation, OnCourtObject clickedObject)
     {
-        if (!activeActionSelecter.action.ValidateClick(clickLocation, clickedObject))
+        if (!activeActionSelecter.objectBuilder.ValidateClick(clickLocation, clickedObject))
         {
             return;
         }
-        playMakerManager.AddPlayer(clickLocation, activeActionSelecter.action);
+        playMakerManager.AddPlayer(clickLocation, activeActionSelecter.objectBuilder);
     }
 
     // need more accurate drag, want to be able to draw
     void ProcessDragInput(Vector3 draggedFrom, Vector3 draggedTo, OnCourtObject dragStartObject, OnCourtObject dragEndObject)
     { 
-        if (!activeActionSelecter.action.ValidateDrag(draggedFrom, draggedTo, dragStartObject, dragEndObject))
+        if (!activeActionSelecter.objectBuilder.ValidateDrag(draggedFrom, draggedTo, dragStartObject, dragEndObject))
         {
             return;
         }
-        playMakerManager.AddPlayerAction(draggedFrom, draggedTo, dragStartObject.GetComponent<Player>(), (PlayerActionBuilder)activeActionSelecter.action);
+        playMakerManager.AddPlayerAction(draggedFrom, draggedTo, dragStartObject.GetComponent<Player>(), (PlayerActionBuilder)activeActionSelecter.objectBuilder);
     }
-
 }

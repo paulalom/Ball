@@ -5,6 +5,6 @@ using UnityEngine;
 public class Court : MonoBehaviour {
 
     public CourtData courtData = new CourtData();
-    public static char[] validSaveCourtCharacters = "1234567890&#/|@:-.,".ToCharArray();
+    public static char[] validSaveCourtCharacters = "1234567890&#/|@:=-.,".ToCharArray();
 
 }

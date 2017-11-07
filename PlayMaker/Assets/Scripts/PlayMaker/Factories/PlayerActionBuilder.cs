@@ -19,7 +19,7 @@ public class PlayerActionBuilder : PlayMakerObjectBuilder
     {
         GameObject go = GameObject.Instantiate(prefabs[typeof(PlayerAction).ToString()]);
         PlayerAction playerAction = go.GetComponent<PlayerAction>();
-        playerAction.stepType = playerActionId;
+        playerAction.actionType = playerActionId;
         playerAction.image.sprite = uiManager.OnCourtImages[(int)playerActionId + 2];
         return playerAction;
     }

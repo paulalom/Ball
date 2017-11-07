@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Collections;
 
 public class PlayMakerManager : MonoBehaviour {
     
@@ -47,7 +48,7 @@ public class PlayMakerManager : MonoBehaviour {
             int curStepId = stepId;
 
             // Check next step to see if we need to add or move again.
-            if (stepId < court.courtData.playerSteps.Count - 1 && currentStepPlayer.playerActions.Where(x => x.isMoveAction).FirstOrDefault() == null)
+            if (stepId < court.courtData.playerSteps.Count - 1 && currentStepPlayer.playerActions.Any(x => x.isMoveAction) == false)
             {
                 AddPlayer(clickLocation, builder, stepId + 1);
             }
@@ -75,6 +76,8 @@ public class PlayMakerManager : MonoBehaviour {
     {
         PlayerAction playerAction = (PlayerAction)playerActionBuilder.GetOnCourtObject(prefabs);
         playerAction.InitPlayerAction(startPoint, endPoint, stepPlayer);
+
+        ClearPreviousAction(stepPlayer, playerAction);
         stepPlayer.playerActions.Add(playerAction);
         if (stepId == court.courtData.playerSteps.Count - 1)
         {
@@ -87,18 +90,23 @@ public class PlayMakerManager : MonoBehaviour {
         }
     }
 
-    public void LoadCourt(string courtString)
+    void ClearPreviousAction(Player player, PlayerAction playerAction)
     {
-        foreach (List<Player> stepPlayers in court.courtData.playerSteps)
+        PlayerAction prevAction;
+        if (playerAction.isMoveAction)
         {
-            foreach (Player player in stepPlayers)
-            {
-                Destroy(player.gameObject);
-            }
+            prevAction = GetPlayerMoveAction(player);
         }
-        court.courtData.playerSteps.Clear();
-        court.courtData = CourtData.FromString(courtString, court, this);
-        stepManager.stepSlider.maxValue = court.courtData.playerSteps.Count - 1;
+        else
+        {
+            prevAction = GetPlayerActionByType(player, playerAction.actionType);
+        }
+
+        if (prevAction != null)
+        {
+            player.playerActions.Remove(prevAction);
+            Destroy(prevAction.gameObject);
+        }
     }
 
     void MovePlayerAndPreserveActionEndpoints(Player player, Vector3 targetPos)
@@ -118,6 +126,44 @@ public class PlayMakerManager : MonoBehaviour {
 
     Player GetStepPlayer(int stepId, int typeId)
     {
-        return court.courtData.playerSteps[stepId].Where(x => x.playerTypeId == typeId).FirstOrDefault();
+        return court.courtData.playerSteps[stepId].FirstOrDefault(x => x.playerTypeId == typeId);
+    }
+    PlayerAction GetPlayerMoveAction(Player player)
+    {
+        return player.playerActions.FirstOrDefault(x => x.isMoveAction);
+    }
+    PlayerAction GetPlayerActionByType(Player player, PlayerActionType actionType)
+    {
+        return player.playerActions.FirstOrDefault(x => x.actionType == actionType);
+    }
+
+    public void Erase(OnCourtObject objectToErase)
+    {
+        if (objectToErase.GetType() == typeof(Player))
+        {
+            court.courtData.playerSteps[stepManager.currentStep].Remove((Player)objectToErase);
+            Destroy(objectToErase.gameObject);
+        }
+        else if (objectToErase.GetType() == typeof(PlayerAction))
+        {
+            PlayerAction action = (PlayerAction)objectToErase;
+            action.owner.playerActions.Remove(action);
+            Destroy(objectToErase.gameObject);
+        }
+    }
+
+    public void LoadCourt(string courtString)
+    {
+        foreach (List<Player> stepPlayers in court.courtData.playerSteps)
+        {
+            foreach (Player player in stepPlayers)
+            {
+                Destroy(player.gameObject);
+            }
+        }
+        court.courtData.playerSteps.Clear();
+        court.courtData = CourtData.FromString(courtString, court, this);
+        stepManager.stepSlider.maxValue = court.courtData.playerSteps.Count - 1;
+        //stepManager.stepSlider.GetComponentsInChildren<Text>().FirstOrDefault(x => x.name == "EndValueText");
     }
 }

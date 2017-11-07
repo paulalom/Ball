@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Court : OnCourtObject {
 
     public CourtData courtData = new CourtData();
-    public static char[] validSaveCourtCharacters = "1234567890&#/|@:-.,".ToCharArray();
+    public static char[] validSaveCourtCharacters = "1234567890&#/|@:=-.,".ToCharArray();
     public RawImage courtImage;
     bool preserveCourtAspectRatio = true;
     bool enforceScreenBoundary = true;

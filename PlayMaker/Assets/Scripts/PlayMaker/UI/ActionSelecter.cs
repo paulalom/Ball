@@ -12,7 +12,7 @@ public enum ActionSelecterType
 }
 public abstract class ActionSelecter : MonoBehaviour {
 
-    public PlayMakerObjectBuilder action;
+    public PlayMakerObjectBuilder objectBuilder;
     public ActionSelecterType selecterType;
     public Image selectionImage;
     

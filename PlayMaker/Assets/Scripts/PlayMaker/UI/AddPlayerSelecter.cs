@@ -7,11 +7,11 @@ public class AddPlayerSelecter : ActionSelecter
 {
     private void Start()
     {
-        action = new PlayerBuilder(0);
+        objectBuilder = new PlayerBuilder(0);
     }
 
     public override void OnValueChanged(int newValueIndex)
     {
-        action = new PlayerBuilder(newValueIndex);
+        objectBuilder = new PlayerBuilder(newValueIndex);
     }
 }

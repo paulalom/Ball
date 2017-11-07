@@ -5,8 +5,9 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour {
     
     public Image throwPowerBar;
-    public Person person;
+    public Player person;
     public List<Sprite> onCourtSprites;
+    public DirectionChevron directionChevron;
 
     void OnGUI()
     {

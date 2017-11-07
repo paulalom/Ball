@@ -6,6 +6,7 @@ public class CourtData {
     public List<List<Player>> playerSteps = new List<List<Player>>() { new List<Player>() };
     public PlayMakerManager playMakerManager;
     public int nextPlayerId = 0;
+    public int humanPlayerId = 0;
 
     public CourtData()
     {
@@ -21,17 +22,17 @@ public class CourtData {
     {
         string width = playMakerManager.screenManager.courtScreenWidth.ToString();
         string height = playMakerManager.screenManager.courtScreenHeight.ToString();
-        string courtString = width + "," + height + "#";
+        string courtString = humanPlayerId + "#" + width + "," + height + "#";
 
         foreach (List<Player> step in playerSteps)
         {
             foreach (Player player in step)
             {
                 RectTransform playerRect = player.GetComponent<RectTransform>();
-                courtString += player.playerTypeId + "@" + playerRect.anchoredPosition.x + "," + playerRect.anchoredPosition.y + ":";
+                courtString += player.playerTypeId + "@" + playerRect.position.x + "," + playerRect.position.y + ":";
                 foreach (PlayerAction playerAction in player.playerActions)
                 {
-                    courtString += (int)playerAction.stepType + "@" + playerAction.start.x + "," + playerAction.start.y + "," + playerAction.start.z + "-"
+                    courtString += (int)playerAction.actionType + "@" + playerAction.start.x + "," + playerAction.start.y + "," + playerAction.start.z + "="
                         + playerAction.end.x + "," + playerAction.end.y + "," + playerAction.end.z + "/";
                 }
                 courtString = courtString.TrimEnd('/');
@@ -53,7 +54,8 @@ public class CourtData {
 
         float courtSizeXRatio = 1f, courtSizeYRatio = 1f, courtSizeX, courtSizeY;
         string[] dataStrings = courtString.Split('#');
-        string[] savedCourtSize = dataStrings[0].Split(',');
+        string humanPlayerId = dataStrings[0];
+        string[] savedCourtSize = dataStrings[1].Split(',');
 
         courtSizeX = float.Parse(savedCourtSize[0]);
         courtSizeY = float.Parse(savedCourtSize[1]);
@@ -63,7 +65,7 @@ public class CourtData {
         courtSizeXRatio = (float)playMakerManager.screenManager.courtScreenWidth/(int)courtSizeX;
         courtSizeYRatio = (float)playMakerManager.screenManager.courtScreenHeight/(int)courtSizeY;
 
-        string[] steps = dataStrings[1].Split('&');
+        string[] steps = dataStrings[2].Split('&');
         foreach (string step in steps)
         {
             List<Player> stepPlayers = new List<Player>();
@@ -86,7 +88,7 @@ public class CourtData {
 
                 Player player = (Player)playerAdder.GetOnCourtObject(playMakerManager.prefabs);
                 player.transform.SetParent(court.transform, false);
-                player.GetComponent<RectTransform>().anchoredPosition = playerPos;
+                player.GetComponent<RectTransform>().position = playerPos;
                 stepPlayers.Add(player);
 
                 if (playerPlaySteps == "")
@@ -98,7 +100,7 @@ public class CourtData {
                 {
                     string[] temp2 = playStepData.Split('@');
                     string stepType = temp2[0];
-                    string[] actionPositions = temp2[1].Split('-');
+                    string[] actionPositions = temp2[1].Split('=');
 
                     playStepAdder.playerActionId = (PlayerActionType)int.Parse(stepType);
 
@@ -114,6 +116,7 @@ public class CourtData {
                                                  float.Parse(stepEnd[2]));
 
                     playerAction.InitPlayerAction(startPoint, endPoint, player);
+                    player.playerActions.Add(playerAction);
                 }
             }
             data.playerSteps.Add(stepPlayers);

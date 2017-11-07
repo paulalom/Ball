@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UserCamera : MonoBehaviour
 {
-    public Person person;
+    public Player person;
     public Ball ball;
 
     // Use this for initialization

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CourtData {
 
-    public List<List<Player>> playerSteps = new List<List<Player>>();
+    public List<List<PlayerStep>> playerSteps = new List<List<PlayerStep>>();
+    public int humanPlayerId;
     
     /// <summary>
     /// Need to convert 2d x,y worldspace to 3d worldspace x,y,z
@@ -17,14 +18,15 @@ public class CourtData {
     public static CourtData FromString(string courtString, Court court, GameManager gameManager)
     {
         CourtData data = new CourtData();
-        PlayerAdder playerAdder = new PlayerAdder();
-        PlayerActionAdder playerActionAdder = new PlayerActionAdder();
+        PlayerStepAdder playerAdder = new PlayerStepAdder();
+        PlayerStepActionAdder playerActionAdder = new PlayerStepActionAdder();
         playerActionAdder.uiManager = gameManager.uiManager;
         playerAdder.uiManager = gameManager.uiManager;
 
         float courtSizeXRatio = 1f, courtSizeZRatio = 1f, courtSizeX, courtSizeZ;
         string[] dataStrings = courtString.Split('#');
-        string[] savedCourtSize = dataStrings[0].Split(',');
+        data.humanPlayerId = int.Parse(dataStrings[0]);
+        string[] savedCourtSize = dataStrings[1].Split(',');
 
         float courtOffsetX, courtOffsetZ;
 
@@ -38,11 +40,11 @@ public class CourtData {
         courtOffsetX = 0;// courtSizeX / 2 * courtSizeXRatio;
         courtOffsetZ = 0; // courtSizeZ / 2 * courtSizeZRatio;
 
-        string[] steps = dataStrings[1].Split('&');
+        string[] steps = dataStrings[2].Split('&');
         foreach (string step in steps) {
 
             string[] players = step.Split('|');
-            List<Player> stepPlayers = new List<Player>();
+            List<PlayerStep> stepPlayers = new List<PlayerStep>();
 
             foreach (string playerData in players)
             {
@@ -59,8 +61,7 @@ public class CourtData {
                                                  .55f,
                                                  courtOffsetZ + float.Parse(playerPosStrings[0]) * courtSizeZRatio);
 
-                Player player = (Player)playerAdder.GetOnCourtObject(gameManager.prefabs);
-                player.transform.SetParent(court.transform);
+                PlayerStep player = (PlayerStep)playerAdder.GetOnCourtObject(gameManager.prefabs);
                 player.transform.position = playerPos;
                 stepPlayers.Add(player);
 
@@ -73,14 +74,14 @@ public class CourtData {
                 {
                     string[] temp2 = playStepData.Split('@');
                     string stepType = temp2[0];
-                    string[] actionPositions = temp2[1].Split('-');
+                    string[] actionPositions = temp2[1].Split('=');
 
                     playerActionAdder.playStepId = (PlayerActionType)int.Parse(stepType);
 
                     string[] stepStart = actionPositions[0].Split(',');
                     string[] stepEnd = actionPositions[1].Split(',');
 
-                    PlayerAction playerAction = (PlayerAction)playerActionAdder.GetOnCourtObject(gameManager.prefabs);
+                    PlayerStepAction playerAction = (PlayerStepAction)playerActionAdder.GetOnCourtObject(gameManager.prefabs);
                     Vector3 startPoint = new Vector3(courtOffsetX + float.Parse(stepStart[1]) * courtSizeXRatio,
                                                  0f,
                                                  courtOffsetZ + float.Parse(stepStart[0]) * courtSizeZRatio);

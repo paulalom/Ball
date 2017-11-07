@@ -1,0 +1,24 @@
+Initialize engine version: 2017.1.0f3 (472613c02cf7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon (TM) R9 390 Series (ID=0x67b1)
+    Vendor:   ATI
+    VRAM:     8169 MB
+    Driver:   22.19.162.4
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\System.dll (this message is harmless)
+Platform assembly: E:\Unity Projects\Ball\HoloTrainer\holotrainer_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.154 seconds
+<RI> Initializing input.
+<RI> Input initialized.

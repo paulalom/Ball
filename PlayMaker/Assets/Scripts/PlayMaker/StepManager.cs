@@ -10,9 +10,10 @@ public class StepManager : MonoBehaviour {
     public bool showAllSteps = false;
     public Slider stepSlider;
     public Court court;
+    bool stepThroughPlaySteps = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,15 +22,25 @@ public class StepManager : MonoBehaviour {
 		
 	}
 
+    IEnumerator StepThroughPlaySteps()
+    {
+        while (currentStep < court.courtData.playerSteps.Count-1 && stepThroughPlaySteps)
+        {
+            SetCurrentStep(currentStep + 1);
+            RefreshBoard();
+            yield return new WaitForSeconds(1);
+        }
+    }
 
     public void StartStepPlaythrough()
     {
-
+        stepThroughPlaySteps = true;
+        StartCoroutine(StepThroughPlaySteps());
     }
 
     public void PauseStepPlaythrough()
     {
-
+        stepThroughPlaySteps = false;
     }
 
     public void ShowAllSteps()
@@ -65,7 +76,7 @@ public class StepManager : MonoBehaviour {
         int totalSteps = court.courtData.playerSteps.Count;
 
         stepSlider.maxValue = totalSteps - 1;
-        Text endText = stepSlider.GetComponentsInChildren<Text>().Where(x => x.name == "EndValueText").FirstOrDefault();
+        Text endText = stepSlider.GetComponentsInChildren<Text>().FirstOrDefault(x => x.name == "EndValueText");
         endText.text = "" + (totalSteps - 1);
 
         foreach (Player player in court.courtData.playerSteps[totalSteps - 2])

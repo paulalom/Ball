@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
     
-    public Person person;
+    public Player person;
     Net currentNet;
 
     void Start()

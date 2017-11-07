@@ -13,10 +13,11 @@ public enum PlayerActionType
 }
 public class PlayerAction : OnCourtObject
 {
-    public PlayerActionType stepType;
+    public PlayerActionType actionType;
     public Image image;
     public Vector3 start, end;
     public bool isMoveAction;
+    public Player owner;
 
     public void InitPlayerAction(Vector3 startPoint, Vector3 endPoint, Player dragActionPlayer)
     {
@@ -36,7 +37,7 @@ public class PlayerAction : OnCourtObject
         rectTransform.sizeDelta = new Vector2(components.magnitude, rectTransform.rect.height);
         rectTransform.localPosition = new Vector3(components.x / 2, components.y / 2, 0);
 
-        if (stepType == PlayerActionType.Shoot || stepType == PlayerActionType.Pass)
+        if (actionType == PlayerActionType.Shoot || actionType == PlayerActionType.Pass)
         {
             isMoveAction = false;
         }
@@ -44,5 +45,6 @@ public class PlayerAction : OnCourtObject
         {
             isMoveAction = true;
         }
+        owner = dragActionPlayer;
     }
 }

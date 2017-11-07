@@ -12,6 +12,5 @@ public class Player : OnCourtObject
 
     void Start()
     {
-        playerActions = new List<PlayerAction>();
     }
 }
