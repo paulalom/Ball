@@ -5,7 +5,7 @@ using UnityEngine;
 public class DirectionChevron : MonoBehaviour {
 
     public Vector3 pointTo;
-    public Camera camera;
+    public new Camera camera;
 
 	void Update () {
         Vector3 screenPos = camera.WorldToScreenPoint(pointTo);

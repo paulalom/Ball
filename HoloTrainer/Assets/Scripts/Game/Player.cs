@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -11,8 +12,9 @@ public class Player : MonoBehaviour {
     public float throwForce = 0f;
     [HideInInspector]
     public float maxThrowForce = 10f;
-    public bool hasBall = true;
+    public bool hasBall;
     bool throwing = false;
+    public Text debugText;
 
     Vector3 mouseStartPostion;
     Vector3 startRotation;
@@ -20,11 +22,23 @@ public class Player : MonoBehaviour {
     Vector2 RotationSensitivity = new Vector2(0.25f, 0.25f);
     Vector2 TranslationSensitivity = new Vector2(.05f, .05f);
     float zoomSensitivity = 1.5f;
+    Vector3 prevOrientation;
 
     // Use this for initialization
     void Start () {
         throwForce = 0;
-	}
+
+        var gyro = Input.gyro;
+        if (!gyro.enabled)
+        {
+            gyro.enabled = true;
+        }
+        debugText.color = Color.white;
+
+        Vector3 orientation = Input.gyro.attitude.eulerAngles;
+        orientation.y *= -1;
+        prevOrientation = orientation;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -55,6 +69,29 @@ public class Player : MonoBehaviour {
     }
 
     void CheckInput()
+    {
+        //CheckDeviceInput();
+        //CheckDesktopInput();
+    }
+
+    void CheckDeviceInput()
+    {
+        Vector3 accelleration = Input.gyro.userAcceleration;
+        Vector3 orientation = Input.gyro.attitude.eulerAngles;
+        orientation.y *= -1;
+        Vector3 changeInOrientation = prevOrientation - orientation;
+        prevOrientation = orientation;
+
+        //orientation.
+        accelleration.y = 0;
+
+        debugText.text = "pos: " + transform.position + "\r\nv: " + accelleration + "\r\nia: " + (accelleration);
+        
+        eyes.transform.localEulerAngles = orientation;
+        gameObject.transform.localPosition += accelleration;
+    }
+
+    void CheckDesktopInput()
     {
         if (hasBall && Input.GetKey(KeyCode.Mouse0))
         {
@@ -92,7 +129,8 @@ public class Player : MonoBehaviour {
                                                                   0));
             }
         }
-        else {
+        else
+        {
             isRotating = false;
         }
         transform.Translate(new Vector3(
