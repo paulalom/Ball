@@ -52,7 +52,7 @@ public class Court : OnCourtObject {
         courtScreenHeight = scaleY * Game.courtHeight;
 
         courtImage.rectTransform.localScale = new Vector3(scaleY, scaleX, 1);
-        rectTransform.position = new Vector3(courtScreenWidth/2, courtScreenHeight/2, 0);
+        rectTransform.position = new Vector3(Screen.width / 2, Screen.height / 2, 0);//new Vector3(courtScreenWidth/2, courtScreenHeight/2, 0);
 
         sm.courtScreenWidth = (int)Math.Round(courtScreenWidth);
         sm.courtScreenHeight = (int)Math.Round(courtScreenHeight);

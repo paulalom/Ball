@@ -23,6 +23,9 @@ public class Player : MonoBehaviour {
     Vector2 TranslationSensitivity = new Vector2(.05f, .05f);
     float zoomSensitivity = 1.5f;
     Vector3 prevOrientation;
+    Vector3 velocity;
+    Vector3 prevAccelleration;
+
 
     // Use this for initialization
     void Start () {
@@ -76,19 +79,36 @@ public class Player : MonoBehaviour {
 
     void CheckDeviceInput()
     {
-        Vector3 accelleration = Input.gyro.userAcceleration;
+        Vector3 accelleration = Input.gyro.userAcceleration;//Vector3.zero;
+        foreach (AccelerationEvent a in Input.accelerationEvents)
+        {
+            //velocity += a.acceleration * a.deltaTime;
+        }
+        accelleration = Clamp(accelleration, 0.01f);
+        velocity += accelleration;
         Vector3 orientation = Input.gyro.attitude.eulerAngles;
         orientation.y *= -1;
-        Vector3 changeInOrientation = prevOrientation - orientation;
-        prevOrientation = orientation;
 
-        //orientation.
-        accelleration.y = 0;
+        velocity.y = 0;
+        //velocity = Clamp(velocity, 0.01f);
+        //prevAccelleration = accelleration;
 
-        debugText.text = "pos: " + transform.position + "\r\nv: " + accelleration + "\r\nia: " + (accelleration);
-        
-        eyes.transform.localEulerAngles = orientation;
-        gameObject.transform.localPosition += accelleration;
+        //velocity += accelleration;
+
+        debugText.text = "pos: " + transform.position.ToString("G4") + "\r\na: " + accelleration.ToString("G4") 
+            + "\r\nv: " + (velocity.ToString("G4")) + "\r\nae: " + Input.accelerationEventCount;
+
+        //eyes.transform.localEulerAngles = orientation;
+        gameObject.transform.localPosition += velocity * Time.deltaTime;
+    }
+
+    Vector3 Clamp(Vector3 vector, float min)
+    {
+        Vector3 outVec = new Vector3(
+        (vector.x < min && vector.x > -min) ? 0 : vector.x,
+        (vector.y < min && vector.y > -min) ? 0 : vector.y,
+        (vector.z < min && vector.z > -min) ? 0 : vector.z);
+        return outVec;
     }
 
     void CheckDesktopInput()
