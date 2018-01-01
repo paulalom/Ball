@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: 507534f8f98251c40b4997b619e8b1a4
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: lebron_SH_HeadJ
+    100004: lebron_SH_HeadTipJ
+    100006: lebron_SH_JawJ
+    100008: lebron_SH_JawTipJ
+    100010: lebron_SH_lAnkleJ
+    100012: lebron_SH_lBallJ
+    100014: lebron_SH_lClavicleJ
+    100016: lebron_SH_lElbowJ
+    100018: lebron_SH_lEyeJ
+    100020: lebron_SH_lFinger1J1
+    100022: lebron_SH_lFinger1J2
+    100024: lebron_SH_lFinger1J3
+    100026: lebron_SH_lFinger1JTip
+    100028: lebron_SH_lFinger2J1
+    100030: lebron_SH_lFinger2J2
+    100032: lebron_SH_lFinger2J3
+    100034: lebron_SH_lFinger2JTip
+    100036: lebron_SH_lFinger3J1
+    100038: lebron_SH_lFinger3J2
+    100040: lebron_SH_lFinger3J3
+    100042: lebron_SH_lFinger3JTip
+    100044: lebron_SH_lFinger4J1
+    100046: lebron_SH_lFinger4J2
+    100048: lebron_SH_lFinger4J3
+    100050: lebron_SH_lFinger4JTip
+    100052: lebron_SH_lForearmJ
+    100054: lebron_SH_lHipJ
+    100056: lebron_SH_lKneeJ
+    100058: lebron_SH_lPalmJ
+    100060: lebron_SH_lShoulderJ
+    100062: lebron_SH_lThumbJ1
+    100064: lebron_SH_lThumbJ2
+    100066: lebron_SH_lThumbJ3
+    100068: lebron_SH_lThumbJTip
+    100070: lebron_SH_lToeJ
+    100072: lebron_SH_lWristJ
+    100074: lebron_SH_Neck01J
+    100076: lebron_SH_rAnkleJ
+    100078: lebron_SH_rBallJ
+    100080: lebron_SH_rClavicleJ
+    100082: lebron_SH_rElbowJ
+    100084: lebron_SH_rEyeJ
+    100086: lebron_SH_rFinger1J1
+    100088: lebron_SH_rFinger1J2
+    100090: lebron_SH_rFinger1J3
+    100092: lebron_SH_rFinger1JTip
+    100094: lebron_SH_rFinger2J1
+    100096: lebron_SH_rFinger2J2
+    100098: lebron_SH_rFinger2J3
+    100100: lebron_SH_rFinger2JTip
+    100102: lebron_SH_rFinger3J1
+    100104: lebron_SH_rFinger3J2
+    100106: lebron_SH_rFinger3J3
+    100108: lebron_SH_rFinger3JTip
+    100110: lebron_SH_rFinger4J1
+    100112: lebron_SH_rFinger4J2
+    100114: lebron_SH_rFinger4J3
+    100116: lebron_SH_rFinger4JTip
+    100118: lebron_SH_rForearmJ
+    100120: lebron_SH_rHipJ
+    100122: lebron_SH_rKneeJ
+    100124: lebron_SH_ROOTJ
+    100126: lebron_SH_rPalmJ
+    100128: lebron_SH_rShoulderJ
+    100130: lebron_SH_rThumbJ1
+    100132: lebron_SH_rThumbJ2
+    100134: lebron_SH_rThumbJ3
+    100136: lebron_SH_rThumbJTip
+    100138: lebron_SH_rToeJ
+    100140: lebron_SH_rWristJ
+    100142: lebron_SH_Spine01J
+    100144: lebron_SH_Spine02J
+    100146: lebron_SH_Spine03J
+    100148: lebron_SH_SpineTopJ
+    100150: bp_SH_HeadJ
+    100152: bp_SH_HeadTipJ
+    100154: bp_SH_JawJ
+    100156: bp_SH_JawTipJ
+    100158: bp_SH_lAnkleJ
+    100160: bp_SH_lBallJ
+    100162: bp_SH_lClavicleJ
+    100164: bp_SH_lElbowJ
+    100166: bp_SH_lEyeJ
+    100168: bp_SH_lFinger1J1
+    100170: bp_SH_lFinger1J2
+    100172: bp_SH_lFinger1J3
+    100174: bp_SH_lFinger1JTip
+    100176: bp_SH_lFinger2J1
+    100178: bp_SH_lFinger2J2
+    100180: bp_SH_lFinger2J3
+    100182: bp_SH_lFinger2JTip
+    100184: bp_SH_lFinger3J1
+    100186: bp_SH_lFinger3J2
+    100188: bp_SH_lFinger3J3
+    100190: bp_SH_lFinger3JTip
+    100192: bp_SH_lFinger4J1
+    100194: bp_SH_lFinger4J2
+    100196: bp_SH_lFinger4J3
+    100198: bp_SH_lFinger4JTip
+    100200: bp_SH_lForearmJ
+    100202: bp_SH_lHipJ
+    100204: bp_SH_lKneeJ
+    100206: bp_SH_lPalmJ
+    100208: bp_SH_lShoulderJ
+    100210: bp_SH_lThumbJ1
+    100212: bp_SH_lThumbJ2
+    100214: bp_SH_lThumbJ3
+    100216: bp_SH_lThumbJTip
+    100218: bp_SH_lToeJ
+    100220: bp_SH_lWristJ
+    100222: bp_SH_Neck01J
+    100224: bp_SH_rAnkleJ
+    100226: bp_SH_rBallJ
+    100228: bp_SH_rClavicleJ
+    100230: bp_SH_rElbowJ
+    100232: bp_SH_rEyeJ
+    100234: bp_SH_rFinger1J1
+    100236: bp_SH_rFinger1J2
+    100238: bp_SH_rFinger1J3
+    100240: bp_SH_rFinger1JTip
+    100242: bp_SH_rFinger2J1
+    100244: bp_SH_rFinger2J2
+    100246: bp_SH_rFinger2J3
+    100248: bp_SH_rFinger2JTip
+    100250: bp_SH_rFinger3J1
+    100252: bp_SH_rFinger3J2
+    100254: bp_SH_rFinger3J3
+    100256: bp_SH_rFinger3JTip
+    100258: bp_SH_rFinger4J1
+    100260: bp_SH_rFinger4J2
+    100262: bp_SH_rFinger4J3
+    100264: bp_SH_rFinger4JTip
+    100266: bp_SH_rForearmJ
+    100268: bp_SH_rHipJ
+    100270: bp_SH_rKneeJ
+    100272: bp_SH_ROOTJ
+    100274: bp_SH_rPalmJ
+    100276: bp_SH_rShoulderJ
+    100278: bp_SH_rThumbJ1
+    100280: bp_SH_rThumbJ2
+    100282: bp_SH_rThumbJ3
+    100284: bp_SH_rThumbJTip
+    100286: bp_SH_rToeJ
+    100288: bp_SH_rWristJ
+    100290: bp_SH_Spine01J
+    100292: bp_SH_Spine02J
+    100294: bp_SH_Spine03J
+    100296: bp_SH_SpineTopJ
+    400000: //RootNode
+    400002: lebron_SH_HeadJ
+    400004: lebron_SH_HeadTipJ
+    400006: lebron_SH_JawJ
+    400008: lebron_SH_JawTipJ
+    400010: lebron_SH_lAnkleJ
+    400012: lebron_SH_lBallJ
+    400014: lebron_SH_lClavicleJ
+    400016: lebron_SH_lElbowJ
+    400018: lebron_SH_lEyeJ
+    400020: lebron_SH_lFinger1J1
+    400022: lebron_SH_lFinger1J2
+    400024: lebron_SH_lFinger1J3
+    400026: lebron_SH_lFinger1JTip
+    400028: lebron_SH_lFinger2J1
+    400030: lebron_SH_lFinger2J2
+    400032: lebron_SH_lFinger2J3
+    400034: lebron_SH_lFinger2JTip
+    400036: lebron_SH_lFinger3J1
+    400038: lebron_SH_lFinger3J2
+    400040: lebron_SH_lFinger3J3
+    400042: lebron_SH_lFinger3JTip
+    400044: lebron_SH_lFinger4J1
+    400046: lebron_SH_lFinger4J2
+    400048: lebron_SH_lFinger4J3
+    400050: lebron_SH_lFinger4JTip
+    400052: lebron_SH_lForearmJ
+    400054: lebron_SH_lHipJ
+    400056: lebron_SH_lKneeJ
+    400058: lebron_SH_lPalmJ
+    400060: lebron_SH_lShoulderJ
+    400062: lebron_SH_lThumbJ1
+    400064: lebron_SH_lThumbJ2
+    400066: lebron_SH_lThumbJ3
+    400068: lebron_SH_lThumbJTip
+    400070: lebron_SH_lToeJ
+    400072: lebron_SH_lWristJ
+    400074: lebron_SH_Neck01J
+    400076: lebron_SH_rAnkleJ
+    400078: lebron_SH_rBallJ
+    400080: lebron_SH_rClavicleJ
+    400082: lebron_SH_rElbowJ
+    400084: lebron_SH_rEyeJ
+    400086: lebron_SH_rFinger1J1
+    400088: lebron_SH_rFinger1J2
+    400090: lebron_SH_rFinger1J3
+    400092: lebron_SH_rFinger1JTip
+    400094: lebron_SH_rFinger2J1
+    400096: lebron_SH_rFinger2J2
+    400098: lebron_SH_rFinger2J3
+    400100: lebron_SH_rFinger2JTip
+    400102: lebron_SH_rFinger3J1
+    400104: lebron_SH_rFinger3J2
+    400106: lebron_SH_rFinger3J3
+    400108: lebron_SH_rFinger3JTip
+    400110: lebron_SH_rFinger4J1
+    400112: lebron_SH_rFinger4J2
+    400114: lebron_SH_rFinger4J3
+    400116: lebron_SH_rFinger4JTip
+    400118: lebron_SH_rForearmJ
+    400120: lebron_SH_rHipJ
+    400122: lebron_SH_rKneeJ
+    400124: lebron_SH_ROOTJ
+    400126: lebron_SH_rPalmJ
+    400128: lebron_SH_rShoulderJ
+    400130: lebron_SH_rThumbJ1
+    400132: lebron_SH_rThumbJ2
+    400134: lebron_SH_rThumbJ3
+    400136: lebron_SH_rThumbJTip
+    400138: lebron_SH_rToeJ
+    400140: lebron_SH_rWristJ
+    400142: lebron_SH_Spine01J
+    400144: lebron_SH_Spine02J
+    400146: lebron_SH_Spine03J
+    400148: lebron_SH_SpineTopJ
+    400150: bp_SH_HeadJ
+    400152: bp_SH_HeadTipJ
+    400154: bp_SH_JawJ
+    400156: bp_SH_JawTipJ
+    400158: bp_SH_lAnkleJ
+    400160: bp_SH_lBallJ
+    400162: bp_SH_lClavicleJ
+    400164: bp_SH_lElbowJ
+    400166: bp_SH_lEyeJ
+    400168: bp_SH_lFinger1J1
+    400170: bp_SH_lFinger1J2
+    400172: bp_SH_lFinger1J3
+    400174: bp_SH_lFinger1JTip
+    400176: bp_SH_lFinger2J1
+    400178: bp_SH_lFinger2J2
+    400180: bp_SH_lFinger2J3
+    400182: bp_SH_lFinger2JTip
+    400184: bp_SH_lFinger3J1
+    400186: bp_SH_lFinger3J2
+    400188: bp_SH_lFinger3J3
+    400190: bp_SH_lFinger3JTip
+    400192: bp_SH_lFinger4J1
+    400194: bp_SH_lFinger4J2
+    400196: bp_SH_lFinger4J3
+    400198: bp_SH_lFinger4JTip
+    400200: bp_SH_lForearmJ
+    400202: bp_SH_lHipJ
+    400204: bp_SH_lKneeJ
+    400206: bp_SH_lPalmJ
+    400208: bp_SH_lShoulderJ
+    400210: bp_SH_lThumbJ1
+    400212: bp_SH_lThumbJ2
+    400214: bp_SH_lThumbJ3
+    400216: bp_SH_lThumbJTip
+    400218: bp_SH_lToeJ
+    400220: bp_SH_lWristJ
+    400222: bp_SH_Neck01J
+    400224: bp_SH_rAnkleJ
+    400226: bp_SH_rBallJ
+    400228: bp_SH_rClavicleJ
+    400230: bp_SH_rElbowJ
+    400232: bp_SH_rEyeJ
+    400234: bp_SH_rFinger1J1
+    400236: bp_SH_rFinger1J2
+    400238: bp_SH_rFinger1J3
+    400240: bp_SH_rFinger1JTip
+    400242: bp_SH_rFinger2J1
+    400244: bp_SH_rFinger2J2
+    400246: bp_SH_rFinger2J3
+    400248: bp_SH_rFinger2JTip
+    400250: bp_SH_rFinger3J1
+    400252: bp_SH_rFinger3J2
+    400254: bp_SH_rFinger3J3
+    400256: bp_SH_rFinger3JTip
+    400258: bp_SH_rFinger4J1
+    400260: bp_SH_rFinger4J2
+    400262: bp_SH_rFinger4J3
+    400264: bp_SH_rFinger4JTip
+    400266: bp_SH_rForearmJ
+    400268: bp_SH_rHipJ
+    400270: bp_SH_rKneeJ
+    400272: bp_SH_ROOTJ
+    400274: bp_SH_rPalmJ
+    400276: bp_SH_rShoulderJ
+    400278: bp_SH_rThumbJ1
+    400280: bp_SH_rThumbJ2
+    400282: bp_SH_rThumbJ3
+    400284: bp_SH_rThumbJTip
+    400286: bp_SH_rToeJ
+    400288: bp_SH_rWristJ
+    400290: bp_SH_Spine01J
+    400292: bp_SH_Spine02J
+    400294: bp_SH_Spine03J
+    400296: bp_SH_SpineTopJ
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 21
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bp_SH_ROOTJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_lHipJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_lHipJ/bp_SH_lKneeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_lHipJ/bp_SH_lKneeJ/bp_SH_lAnkleJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_lHipJ/bp_SH_lKneeJ/bp_SH_lAnkleJ/bp_SH_lBallJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_lHipJ/bp_SH_lKneeJ/bp_SH_lAnkleJ/bp_SH_lBallJ/bp_SH_lToeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_rHipJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_rHipJ/bp_SH_rKneeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_rHipJ/bp_SH_rKneeJ/bp_SH_rAnkleJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_rHipJ/bp_SH_rKneeJ/bp_SH_rAnkleJ/bp_SH_rBallJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_rHipJ/bp_SH_rKneeJ/bp_SH_rAnkleJ/bp_SH_rBallJ/bp_SH_rToeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lForearmJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger1J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger1J1/bp_SH_lFinger1J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger1J1/bp_SH_lFinger1J2/bp_SH_lFinger1J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger1J1/bp_SH_lFinger1J2/bp_SH_lFinger1J3/bp_SH_lFinger1JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger2J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger2J1/bp_SH_lFinger2J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger2J1/bp_SH_lFinger2J2/bp_SH_lFinger2J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger2J1/bp_SH_lFinger2J2/bp_SH_lFinger2J3/bp_SH_lFinger2JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger3J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger3J1/bp_SH_lFinger3J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger3J1/bp_SH_lFinger3J2/bp_SH_lFinger3J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger3J1/bp_SH_lFinger3J2/bp_SH_lFinger3J3/bp_SH_lFinger3JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger4J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger4J1/bp_SH_lFinger4J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger4J1/bp_SH_lFinger4J2/bp_SH_lFinger4J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lPalmJ/bp_SH_lFinger4J1/bp_SH_lFinger4J2/bp_SH_lFinger4J3/bp_SH_lFinger4JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lThumbJ1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lThumbJ1/bp_SH_lThumbJ2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lThumbJ1/bp_SH_lThumbJ2/bp_SH_lThumbJ3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_lClavicleJ/bp_SH_lShoulderJ/bp_SH_lElbowJ/bp_SH_lWristJ/bp_SH_lThumbJ1/bp_SH_lThumbJ2/bp_SH_lThumbJ3/bp_SH_lThumbJTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ/bp_SH_HeadTipJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ/bp_SH_JawJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ/bp_SH_JawJ/bp_SH_JawTipJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ/bp_SH_lEyeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_Neck01J/bp_SH_HeadJ/bp_SH_rEyeJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rForearmJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger1J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger1J1/bp_SH_rFinger1J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger1J1/bp_SH_rFinger1J2/bp_SH_rFinger1J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger1J1/bp_SH_rFinger1J2/bp_SH_rFinger1J3/bp_SH_rFinger1JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger2J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger2J1/bp_SH_rFinger2J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger2J1/bp_SH_rFinger2J2/bp_SH_rFinger2J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger2J1/bp_SH_rFinger2J2/bp_SH_rFinger2J3/bp_SH_rFinger2JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger3J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger3J1/bp_SH_rFinger3J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger3J1/bp_SH_rFinger3J2/bp_SH_rFinger3J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger3J1/bp_SH_rFinger3J2/bp_SH_rFinger3J3/bp_SH_rFinger3JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger4J1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger4J1/bp_SH_rFinger4J2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger4J1/bp_SH_rFinger4J2/bp_SH_rFinger4J3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rPalmJ/bp_SH_rFinger4J1/bp_SH_rFinger4J2/bp_SH_rFinger4J3/bp_SH_rFinger4JTip
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rThumbJ1
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rThumbJ1/bp_SH_rThumbJ2
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rThumbJ1/bp_SH_rThumbJ2/bp_SH_rThumbJ3
+        weight: 1
+      - path: bp_SH_ROOTJ/bp_SH_Spine01J/bp_SH_Spine02J/bp_SH_Spine03J/bp_SH_SpineTopJ/bp_SH_rClavicleJ/bp_SH_rShoulderJ/bp_SH_rElbowJ/bp_SH_rWristJ/bp_SH_rThumbJ1/bp_SH_rThumbJ2/bp_SH_rThumbJ3/bp_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
