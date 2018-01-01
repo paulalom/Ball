@@ -10,7 +10,6 @@ public class CourtData {
 
     public CourtData()
     {
-
     }
 
     public CourtData(List<List<Player>> playerSteps)
@@ -24,16 +23,28 @@ public class CourtData {
         string height = playMakerManager.screenManager.courtScreenHeight.ToString();
         string courtString = humanPlayerId + "#" + width + "," + height + "#";
 
+        // subtract half screen to move to origin
         foreach (List<Player> step in playerSteps)
         {
             foreach (Player player in step)
             {
+                // Player
                 RectTransform playerRect = player.GetComponent<RectTransform>();
-                courtString += player.playerTypeId + "@" + playerRect.position.x + "," + playerRect.position.y + ":";
+                courtString += player.playerTypeId + "@" 
+                            + (playerRect.position.x - Screen.width/2)
+                            + "," 
+                            + (playerRect.position.y - Screen.height/2) + ":";
+
+                // Player Action
                 foreach (PlayerAction playerAction in player.playerActions)
                 {
-                    courtString += (int)playerAction.actionType + "@" + playerAction.start.x + "," + playerAction.start.y + "," + playerAction.start.z + "="
-                        + playerAction.end.x + "," + playerAction.end.y + "," + playerAction.end.z + "/";
+                    courtString += (int)playerAction.actionType + "@" 
+                        + (playerAction.start.x - Screen.width / 2) + "," 
+                        + (playerAction.start.y - Screen.height / 2) + "," 
+                        + playerAction.start.z + "="
+                        + (playerAction.end.x - Screen.width / 2) + "," 
+                        + (playerAction.end.y - Screen.height / 2) + "," 
+                        + playerAction.end.z + "/";
                 }
                 courtString = courtString.TrimEnd('/');
                 courtString += "|";
@@ -82,8 +93,8 @@ public class CourtData {
                 playerAdder.playerTypeId = int.Parse(playerId);
 
                 string[] playerPosStrings = temp[1].Split(',');
-                Vector3 playerPos = new Vector3(float.Parse(playerPosStrings[0]) * courtSizeXRatio,
-                                                 float.Parse(playerPosStrings[1]) * courtSizeYRatio,
+                Vector3 playerPos = new Vector3(float.Parse(playerPosStrings[0]) * courtSizeXRatio + Screen.width/2,
+                                                 float.Parse(playerPosStrings[1]) * courtSizeYRatio + Screen.height/2,
                                                  0);
 
                 Player player = (Player)playerAdder.GetOnCourtObject(playMakerManager.prefabs);
@@ -108,11 +119,11 @@ public class CourtData {
                     string[] stepEnd = actionPositions[1].Split(',');
 
                     PlayerAction playerAction = (PlayerAction)playStepAdder.GetOnCourtObject(playMakerManager.prefabs);
-                    Vector3 startPoint = new Vector3(float.Parse(stepStart[0]) * courtSizeXRatio,
-                                                 float.Parse(stepStart[1]) * courtSizeYRatio,
+                    Vector3 startPoint = new Vector3(float.Parse(stepStart[0]) * courtSizeXRatio + Screen.width / 2,
+                                                 float.Parse(stepStart[1]) * courtSizeYRatio + Screen.height / 2,
                                                  float.Parse(stepStart[2]));
-                    Vector3 endPoint = new Vector3(float.Parse(stepEnd[0]) * courtSizeXRatio,
-                                                 float.Parse(stepEnd[1]) * courtSizeYRatio,
+                    Vector3 endPoint = new Vector3(float.Parse(stepEnd[0]) * courtSizeXRatio + Screen.width / 2,
+                                                 float.Parse(stepEnd[1]) * courtSizeYRatio + Screen.height / 2,
                                                  float.Parse(stepEnd[2]));
 
                     playerAction.InitPlayerAction(startPoint, endPoint, player);
